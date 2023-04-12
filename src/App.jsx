@@ -47,7 +47,7 @@ function App() {
         boardCheck[a] === boardCheck[b] &&
         boardCheck[a] === boardCheck[c]
       ){
-        return boardCheck
+        return boardCheck[a]// x u o
       }
     } 
     // no Winner
@@ -69,8 +69,11 @@ function App() {
     setTurn(newTurn)
     //check if there is a winner
     const newWinner = checkWinner(newBoard)
-    if(newWinner){
-      setWinner(newWinner)
+    if (newWinner){
+      setWinner(() => {
+        return newWinner
+      })
+      alert(`El ganador es ${newWinner}`)
     }
   }
  
